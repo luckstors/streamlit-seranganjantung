@@ -6,7 +6,7 @@ import os
 
 # URL model dari GitHub
 MODEL_URL = "https://github.com/luckstors/streamlit-seranganjantung/raw/main/rf_model.pkl"
-MODEL_PATH = "/mnt/data/rf_model.pkl"
+MODEL_PATH = "rf_model.pkl"
 
 # Download model jika belum ada
 if not os.path.exists(MODEL_PATH):
