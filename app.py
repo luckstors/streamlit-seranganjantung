@@ -46,7 +46,7 @@ bmi = st.number_input("BMI", min_value=10.0, max_value=50.0, value=25.0, format=
 # Tombol prediksi
 if st.button("Prediksi"):
     try:
-        # Preprocessing input (encoding untuk 'Gender', 'Region', dll.)
+        # Preprocessing input (Encoding agar sesuai dengan model)
         gender_encoded = 1 if gender == "Male" else 0
         region_encoded = 1 if region == "Urban" else 0
         smoking_encoded = 1 if smoking == "Yes" else 0
@@ -55,7 +55,10 @@ if st.button("Prediksi"):
 
         input_data = pd.DataFrame(
             [[age, gender_encoded, region_encoded, smoking_encoded, diabetes_encoded, cholesterol, diet, alcohol_encoded, bmi]],
-            columns=["Age", "Gender", "Region", "Smoking", "Diabetes", "Cholesterol", "Diet", "Alcohol", "BMI"],
+            columns=[
+                "Age", "Gender", "Region", "Smoking_History", "Diabetes_History",
+                "Cholesterol_Level", "Diet_Quality", "Alcohol_Consumption", "BMI"
+            ],
         )
 
         # Prediksi
